@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      {{ book.title }}
+    </title>
+  </head>
+  <body>
+    <h1>
+      {{ book.title }}
+    </h1>
+    <h2>
+      {{ book.author }}
+    </h2>
+    <h5>
+      {{ book.isbn }}
+    </h5>
+    <h4>
+        Data from Goodreads : 
+    </h4>
+    {% for value in goodreads_data %}
+    <div>
+        {{ value }}
+    </div>
+    {% endfor %}
+    <ul>
+      {% for review in reviews %}
+      <li>
+        <h6>
+          {{ review.username }}
+        </h6>
+        <div>
+          {{ review.review }}
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+    {% if check == 0 %}
+    <form action="{{ url_for('book', isbn_val=book.isbn) }}" method="POST">
+      <input name="review" placeholder="Write your review" type="text" />
+      <button>
+        Submit
+      </button>
+      <div class="form-group">
+        <label for="inputState">Rating</label>
+        <select id="inputState" class="form-control" name="rating">
+          <option selected>Choose...</option>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+      </div>
+    </form>
+    {% endif %}
+    <form action="{{ url_for('searchshow') }}" method="POST">
+      <button>
+        Go back
+      </button>
+    </form>
+  </body>
+</html>

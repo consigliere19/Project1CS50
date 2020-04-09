@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      {{ error }}
+    </title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <style>
+        .pp{
+            padding: 10px
+        }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="pp">
+        {{ error }}
+      </div>
+      <form class="form-group" action="{{url_for('login')}}" method="POST">
+        <button class="btn btn-primary">
+          Login
+        </button>
+      </form>
+
+      <form class="form-group" action="{{url_for('register')}}" method="POST">
+        <button class="btn btn-primary">
+          Register
+        </button>
+      </form>
+    </div>
+  </body>
+</html>

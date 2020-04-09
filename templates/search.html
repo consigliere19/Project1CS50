@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      Welcome {{ name }}
+    </title>
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <form class="form-group" action="{{ url_for('search') }}" method="POST">
+        <input class="form-control"  placeholder="Title" name="title" type="text">
+        <input class="form-control" placeholder="Author" name="author" type="text">
+        <input class="form-control" placeholder="ISBN" name="isbn" type="text">
+        <button>
+            Submit
+        </button>
+    </form>
+    <form action="{{ url_for('login') }}">
+        <button>
+            Go back
+        </button>
+    </form>
+    
+  </body>
+</html>

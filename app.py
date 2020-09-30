@@ -77,7 +77,7 @@ def searchshow():
 
 @app.route("/logout")
 def logout():
-    session.pop('username', None) 
+   
     return render_template("login.html", check = 0, check2 = 0)
 
 
@@ -111,11 +111,7 @@ def book(isbn_val):
 def mybook_api(isbn_val):
     book = db.execute("SELECT * FROM books WHERE isbn=:isbn", {"isbn": isbn_val}).fetchone()
     print(book)
-    if book == None:
-        return jsonify({
-            "error": "book not found"
-        })
-    
+   
     else:
         return jsonify({
             "title": book.title,
